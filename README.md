@@ -11,8 +11,8 @@
                         result = mapper.routematch(path)
                     response = self.app(environ, start_response)  这个调用跑到一个_dispatch函数去了，也就是上面的self._dispatch，
                                                                   也就是wsgi.py文件内部的Router类的成员    @staticmethod @webob.dec.wsgify 
-                                                                  def _dispatch(req): 该函数被系统的webob.dec.wsgify装饰了，所以先调用dec.py文件内的
-                                                                  wsgify的def __call__(self, req, *args, **kw):
+                                                                  def _dispatch(req): 该函数被系统的webob.dec.wsgify装饰了，所以先调用   
+                                                                  dec.py文件内的wsgify的def __call__(self, req, *args, **kw):
                         ->dec.wsgify.__call__
                              resp = self.call_func(req, *args, **self.kwargs)
                              最终调用本地的wsgi.Router._dispatch,_dispatch返回的app是wsgi.resource对象，
